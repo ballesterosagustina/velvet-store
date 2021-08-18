@@ -5,21 +5,30 @@ import logo from './velvet-nav.png';
 // Components:
 import './components/NavBar/NavBar';
 import NavBar from './components/NavBar/NavBar';
-import Greeting from './components/ItemListContainer/ItemListContainer'
+import Producto from './components/ItemListContainer/ItemListContainer'
+import ItemCount from './components/ItemCount/ItemCount';
 
-class App extends React.Component {
-  render () {
+
+function App () {
+  let stock = 15;
+
+  function Agregar (counter) {
+    counter > stock
+    ? alert('No tenemos stock suficiente')
+    : alert('Añadido al carrito');
+  }
+
     return(
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <NavBar/> 
         </header>
-        <Greeting title='Bienvenidos' description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-' />
+        <Producto producto='Producto 1' precio='$100'/>
+        <ItemCount stock={stock} initial={0} onAdd={Agregar} />
       </div>
     )
   }
-}
+
 
 export default App;
