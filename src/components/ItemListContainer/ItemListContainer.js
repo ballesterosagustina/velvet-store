@@ -1,10 +1,10 @@
 import React from 'react';
+import ItemList from '../ItemList/ItemList';
 
 const ItemListContainer = (props) => {
     return (
         <div className='items-container'>
-            <h2>{props.producto}</h2>
-            <p>{props.precio}</p>
+            <ItemList />
         </div>
     )
 }

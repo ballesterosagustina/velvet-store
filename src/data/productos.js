@@ -1,0 +1,8 @@
+export const ListaProductos = [
+    {id: 1, title:'Pantalón Brisa', price: 2300, stock: 10, pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/314181a7-05fa-47a3-a726-2551e35b5e521-6b0ee4eadae98db67e16233523502450-1024-1024.jpeg', alt: 'Pantalon'},
+    {id: 2, title:'Jean Lolita', price: 3300, stock: 15, pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/talu-411-ac3d86a865c2bc54e816243926407964-1024-1024.jpeg', alt: 'Pantalon de Jean'},
+    {id: 3, title:'Top Wonder', price: 1500, stock: 8, pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/whatsapp-image-2021-08-06-at-13-28-39-211-5e08bd7b92131d2ae416282719459051-1024-1024.jpeg', alt: 'Top'},
+    {id: 4, title:'Remera Valeria', price: 1800, stock: 13, pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/f-411111111-497a3ed57f254b977916191075158584-1024-1024.jpg', alt:'Remera con brillos'},
+    {id: 5, title:'Campera Lupe', price: 3200, stock: 21, pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/whatsapp-image-2021-08-06-at-14-13-431-fb0131fc4658459b7016282721534714-1024-1024.jpeg', alt: 'Campera de Jean'},
+    {id: 6, title:'Vestido Jagger', price: 4500, stock: 18, pictureUrl: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/v-202333333333331-787000a538eba8101616209095050715-1024-1024.jpg', alt: 'Vestido'}
+]
