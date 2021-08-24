@@ -6,7 +6,7 @@ import {ListaProductos} from '../../data/productos';
 function getItemByID (idProduct) {
     const p = new Promise ((resolve, reject) => {
         setTimeout (() => {
-            resolve (ListaProductos)
+            resolve (ListaProductos);
         }, 2000)
     });
 

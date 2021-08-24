@@ -7,6 +7,7 @@ import './components/NavBar/NavBar';
 import NavBar from './components/NavBar/NavBar';
 import Producto from './components/ItemListContainer/ItemListContainer'
 import ItemCount from './components/ItemCount/ItemCount';
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 
 function App () {
@@ -24,8 +25,9 @@ function App () {
           <img src={logo} className="App-logo" alt="logo" />
           <NavBar/> 
         </header>
-        <Producto producto='Producto 1' precio='$100'/>
+        <Producto/>
         <ItemCount stock={stock} initial={0} onAdd={Agregar} />
+        <ItemDetailContainer id={1}/>
       </div>
     )
   }

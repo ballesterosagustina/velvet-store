@@ -1,6 +1,13 @@
 .item-producto{
-    width: 50%;
+    width: 80%;
 }
 .item-producto img{
     width: 100%;
+}
+.item-producto-title{
+    font-size: 1.5rem;
+    margin: 3px;
+}
+.item-producto-price {
+    margin: 2px;
 }
