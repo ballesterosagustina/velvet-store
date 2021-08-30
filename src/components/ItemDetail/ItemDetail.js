@@ -3,7 +3,7 @@ import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 
 function ItemDetail ({item}) {
-    const {title, price, stock, description, picture, picture1, picture2, picture3, picture4, alt} = item
+    const stock = item.stock
 
     function Agregar (counter) {
         counter > {stock}
@@ -23,19 +23,19 @@ function ItemDetail ({item}) {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={picture} className="d-block w-100" alt={alt} />
+                        <img src={item.picture} className="d-block w-100" alt={item.alt} />
                     </div>
                     <div className="carousel-item">
-                        <img src={picture1} className="d-block w-100" alt={alt} />
+                        <img src={item.picture1} className="d-block w-100" alt={item.alt} />
                     </div>
                     <div className="carousel-item">
-                        <img src={picture2} class="d-block w-100" alt={alt} />
+                        <img src={item.picture2} class="d-block w-100" alt={item.alt} />
                     </div>
                     <div className="carousel-item">
-                        <img src={picture3} className="d-block w-100" alt={alt} />
+                        <img src={item.picture3} className="d-block w-100" alt={item.alt} />
                     </div>
                     <div className="carousel-item">
-                        <img src={picture4} className="d-block w-100" alt={alt} />
+                        <img src={item.picture4} className="d-block w-100" alt={item.alt} />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -48,11 +48,11 @@ function ItemDetail ({item}) {
                 </button>
             </div>
             <div className='item-detail-info'>
-                <h2 className='item-detail-title'>{title}</h2>
-                <h3 className='item-detail-price'>${price}</h3>
-                <p className='item-detail-description'>{description}</p>
+                <h2 className='item-detail-title'>{item.title}</h2>
+                <h3 className='item-detail-price'>${item.price}</h3>
+                <p className='item-detail-description'>{item.description}</p>
                 <div>
-                    <ItemCount stock={stock} initial={0} onAdd={Agregar} />
+                    <ItemCount stock={item.stock} initial={0} onAdd={Agregar} />
                 </div>
             </div>
         </div>

@@ -2,35 +2,29 @@ import React, {useEffect, useState} from 'react';
 import './ItemDetailContainer.css';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {ListaProductos} from '../../data/productos';
+import { useParams } from 'react-router-dom';
 
-function getItemByID (idProduct) {
-    const p = new Promise ((resolve, reject) => {
-        setTimeout (() => {
-            resolve (ListaProductos);
-        }, 2000)
-    });
+function ItemDetailContainer () {
 
-    return p
-        .then((res) => {
-            return res.find (element => element.id === idProduct)
-        }, error => {
-            console.log (error)
-        });
-}
-
-function ItemDetailContainer ({id}) {
-    const [itemDetail, setItemDetail] = useState({})
+    const [datosDelItem, setDatosDelItem] = useState({});
+    const {detailId} = useParams ()
 
     useEffect (() => {
-        getItemByID(id).then(itemDetail => {
-            setItemDetail (itemDetail)
+        const p = new Promise ((resolve, error) => {
+            setTimeout(() => {
+                resolve(ListaProductos.filter(e=>e.id === detailId))
+            }, 2000)
         })
-    }, [id])
+
+        p.then((ListaProductos) => {
+            setDatosDelItem (ListaProductos)
+        })
+    }, [detailId])
 
     return(
-        <div>
-            <ItemDetail item={itemDetail} />
-        </div>
+            <div>
+                <ItemDetail item={datosDelItem}/>
+            </div>
     )
 }
 
