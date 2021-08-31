@@ -63,6 +63,7 @@ export const ListaProductos = [
     title:'Falda Fleur', 
     description:'Falda tiro alto con cartera en delantero y botones. Calce arriba al cuerpo, acompaña tu figura con pinzas de entalle en su espalda, y levemente se va abriendo hasta dar con un calce recto sueltito abajo. Tiene bolsillos tipo cargo en delantero. Su textil es gabardina, y es del tipo de faldas que vas a amas.',
     price: 1900, 
+    stock: 18,
     category: 'Pantalones',
     picture: 'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/fleur-011-dccc2dfce8bd7e2ebc16100277534383-1024-1024.jpg', 
     picture1:'https://d3ugyf2ht6aenh.cloudfront.net/stores/001/163/183/products/falda-fleur-041-8253fa162e79fb5d9816100194268638-1024-1024.jpg',

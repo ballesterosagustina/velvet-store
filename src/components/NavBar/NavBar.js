@@ -11,7 +11,7 @@ const NavBar = () =>{
                 <li><NavLink to='/nosotros'>Nosotros</NavLink></li>
                 <li><NavLink to='/contacto'>Contacto</NavLink></li>
             </ul>
-            <CartWidget />
+            <NavLink to='/Cart'><CartWidget /></NavLink>
         </nav>
     )
 }

@@ -3,6 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router';
 import { ListaProductos } from '../../data/productos';
 import Categories from '../Categories/Categories';
+import './ItemListContainer.css';
 
 const ItemListContainer = () => {
     const [resultadoDeItems, setResultadoDeItems] = useState(null)
@@ -25,10 +26,10 @@ const ItemListContainer = () => {
 
     return (
         <div className='items-container'>
-            <div>
+            <div className='categories'>
                 <Categories />
             </div>
-            <div>
+            <div className='products'>
             { resultadoDeItems
             ? <ItemList items={resultadoDeItems}/>
             : null}

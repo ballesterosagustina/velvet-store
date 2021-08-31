@@ -1,5 +1,12 @@
+a, a:hover{
+    text-decoration: none;
+    color: black;
+}
+a:hover img{
+     transform: scale(0.9);
+}
 .item-producto{
-    width: 80%;
+    width: 90%;
 }
 .item-producto img{
     width: 100%;

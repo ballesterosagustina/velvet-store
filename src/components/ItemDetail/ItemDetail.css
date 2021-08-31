@@ -13,21 +13,21 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    margin-left: 60px;
+    margin-left: 40px;
 }
 .item-detail-title{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: start;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .item-detail-price {
     text-align: start;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .item-detail-description {
     text-align: start;
-    line-height: 30px;
+    line-height: 25px;
 }
 button {
     background-color: #fde6e0;

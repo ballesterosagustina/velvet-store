@@ -6,6 +6,7 @@ import logo from './velvet-nav.png';
 import './components/NavBar/NavBar';
 import NavBar from './components/NavBar/NavBar';
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 // React-router-dom
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
@@ -15,7 +16,7 @@ import Home from './views/Home';
 import Productos from './views/Productos';
 import Nosotros from './views/Nosotros';
 import Contacto from './views/Contacto';
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import Cart from './views/Cart';
 
 
 function App () {
@@ -32,18 +33,13 @@ function App () {
             <Route path="/Productos" component={Productos}/>
             <Route path="/Nosotros" component={Nosotros}/>
             <Route path="/Contacto" component={Contacto}/>
+            <Route path="/Cart" component={Cart}/>
             <Route path="/Detail/:detailId" component={ItemDetailContainer}/>
             <Route path="/Category/:categoryId" component={ItemListContainer}/>
           </Switch>
         </div>
       </BrowserRouter>
-      // <div className="App">
-      //   <Producto/>
-      //   <ItemCount stock={stock} initial={0} onAdd={Agregar} />
-      //   <ItemDetailContainer id={1}/>
-      // </div>
     )
   }
-
 
 export default App;

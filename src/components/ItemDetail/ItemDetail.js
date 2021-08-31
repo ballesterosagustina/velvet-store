@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
+import {Link} from 'react-router-dom';
+
 
 function ItemDetail ({item}) {
-    const stock = item.stock
 
-    function Agregar (counter) {
-        counter > {stock}
-        ? alert('No tenemos stock suficiente')
-        : alert('Añadido al carrito');
+    const[counter, setCounter] = useState(null)
+
+    const onAdd = (valor) =>{
+        valor > 0
+        ? setCounter(valor)
+        : alert ("Debe ingresar una cantidad mayor a 0")
     }
 
     return(
@@ -29,7 +32,7 @@ function ItemDetail ({item}) {
                         <img src={item.picture1} className="d-block w-100" alt={item.alt} />
                     </div>
                     <div className="carousel-item">
-                        <img src={item.picture2} class="d-block w-100" alt={item.alt} />
+                        <img src={item.picture2} className="d-block w-100" alt={item.alt} />
                     </div>
                     <div className="carousel-item">
                         <img src={item.picture3} className="d-block w-100" alt={item.alt} />
@@ -52,7 +55,12 @@ function ItemDetail ({item}) {
                 <h3 className='item-detail-price'>${item.price}</h3>
                 <p className='item-detail-description'>{item.description}</p>
                 <div>
-                    <ItemCount stock={item.stock} initial={0} onAdd={Agregar} />
+                    {counter === null
+                    ? <ItemCount stock={item.stock} onAdd={onAdd} />
+                    : <Link to='/Cart'>
+                        <button className='cart-boton'>Termina tu compra</button>
+                      </Link>
+                    }
                 </div>
             </div>
         </div>

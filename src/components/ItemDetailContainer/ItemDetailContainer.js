@@ -12,8 +12,8 @@ function ItemDetailContainer () {
     useEffect (() => {
         const p = new Promise ((resolve, error) => {
             setTimeout(() => {
-                resolve(ListaProductos.filter(e=>e.id === detailId))
-            }, 2000)
+                resolve(ListaProductos.find(e=>e.id === parseInt(detailId)))
+            },)
         })
 
         p.then((ListaProductos) => {
