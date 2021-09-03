@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import {Link} from 'react-router-dom';
+import { CartContext } from '../../CartContext';
+
 
 
 function ItemDetail ({item}) {
 
-    const[counter, setCounter] = useState(null)
+    const {addToCart} = useContext(CartContext);
+
+    const [counter, setCounter] = useState(1)
 
     const onAdd = (valor) =>{
         valor > 0
         ? setCounter(valor)
         : alert ("Debe ingresar una cantidad mayor a 0")
+
+        addToCart(item, valor);
     }
 
     return(
@@ -55,7 +61,7 @@ function ItemDetail ({item}) {
                 <h3 className='item-detail-price'>${item.price}</h3>
                 <p className='item-detail-description'>{item.description}</p>
                 <div>
-                    {counter === null
+                    {counter === 1
                     ? <ItemCount stock={item.stock} onAdd={onAdd} />
                     : <Link to='/Cart'>
                         <button className='cart-boton'>Termina tu compra</button>

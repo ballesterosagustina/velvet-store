@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './ItemCount.css';
 
 const ItemCount = ({item, stock, onAdd}) => {
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(1);
 
     const agregar = (maximo) => {
         counter < maximo 

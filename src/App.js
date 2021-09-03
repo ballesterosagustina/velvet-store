@@ -18,27 +18,31 @@ import Nosotros from './views/Nosotros';
 import Contacto from './views/Contacto';
 import Cart from './views/Cart';
 
+import { CartProvider } from "./CartContext";
+
 
 function App () {
 
     return(
-      <BrowserRouter>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <NavBar/> 
-          </header>
-          <Switch>
-            <Route path="/" exact component={Home}/>
-            <Route path="/Productos" component={Productos}/>
-            <Route path="/Nosotros" component={Nosotros}/>
-            <Route path="/Contacto" component={Contacto}/>
-            <Route path="/Cart" component={Cart}/>
-            <Route path="/Detail/:detailId" component={ItemDetailContainer}/>
-            <Route path="/Category/:categoryId" component={ItemListContainer}/>
-          </Switch>
-        </div>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+            <div className="App">
+              <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <NavBar/> 
+              </header>
+              <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/Productos" component={Productos}/>
+                <Route path="/Nosotros" component={Nosotros}/>
+                <Route path="/Contacto" component={Contacto}/>
+                <Route path="/Cart" component={Cart}/>
+                <Route path="/Detail/:detailId" component={ItemDetailContainer}/>
+                <Route path="/Category/:categoryId" component={ItemListContainer}/>
+              </Switch>
+            </div>
+        </BrowserRouter>
+      </CartProvider>
     )
   }
 
