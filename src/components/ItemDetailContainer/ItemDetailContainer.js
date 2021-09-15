@@ -1,24 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import './ItemDetailContainer.css';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import {ListaProductos} from '../../data/productos';
 import { useParams } from 'react-router-dom';
 
-function ItemDetailContainer () {
+// Firebase
+import { db } from '../../firebase';
+import {doc, getDoc} from 'firebase/firestore';
+
+const ItemDetailContainer = () => {
 
     const [datosDelItem, setDatosDelItem] = useState({});
+    const [isVisible, setIsVisible] = useState(false)
     const {detailId} = useParams ()
 
-    useEffect (() => {
-        const p = new Promise ((resolve, error) => {
-            setTimeout(() => {
-                resolve(ListaProductos.find(e=>e.id === parseInt(detailId)))
-            },)
-        })
+    const getProduct = async (id) => {
+        const docRef = doc(db, 'products', detailId);
+        const docSnap = await getDoc(docRef)
+        let prdId = {}
 
-        p.then((ListaProductos) => {
-            setDatosDelItem (ListaProductos)
-        })
+        if(docSnap.exists()) { 
+            setIsVisible(true)
+            prdId = docSnap.id;
+            setDatosDelItem({...docSnap.data(), id:prdId})
+        } else {
+            alert('ocurrió un error');
+        }
+    }
+
+    useEffect(() => {
+        getProduct(detailId)
     }, [detailId])
 
     return(
