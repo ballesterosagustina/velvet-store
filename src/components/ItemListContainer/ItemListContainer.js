@@ -6,7 +6,6 @@ import './ItemListContainer.css';
 
 //Firebase
 import {db} from './../../firebase';
-import { collection, query, getDocs } from "firebase/firestore";
 
 
 const ItemListContainer = () => {
@@ -15,21 +14,30 @@ const ItemListContainer = () => {
     const {categoryId} = useParams();
 
     const getProducts = async() => {
-        const docs = [];
-        const q = query(collection(db, 'products'));
-        
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            docs.push({...doc.data(), id: doc.id});
+        db.collection('products').onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+                docs.push({ ...doc.data(), id: doc.id });
+            });
+            categoryId
+            ? setProductos(docs.filter((e) => e.category === categoryId))
+            : setProductos(docs);
         })
-    categoryId
-    ? setProductos(docs.filter((e) => e.category === categoryId))
-    : setProductos(docs);
     }
+        // const q = query(collection(db, 'products'));
+        
+        // const querySnapshot = await getDocs(q);
+        // querySnapshot.forEach((doc) => {
+        //     docs.push({...doc.data(), id: doc.id});
+        // })
+    // categoryId
+    // ? setProductos(docs.filter((e) => e.category === categoryId))
+    // : setProductos(docs);
+    // }
 
     useEffect(() => {
         getProducts();
-    })
+    }, [categoryId]);
 
     return(
         <div className='items-container'>
